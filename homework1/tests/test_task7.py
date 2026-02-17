@@ -1,12 +1,13 @@
 import numpy as np
-from src.task7 import create_NP_array
+from src.task7 import NP_array
 
 '''
-Arguments: none
-Checks if the datatype is of type for np array
+Arguments: capsys
+Checks if the correct array was printed
 Return: Assert
 '''
-def test_create_NP_array():
-    arr = create_NP_array()
-    assert isinstance(arr, np.ndarray)        # Checks for np array datatype
-                                              # ndarray class: https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html
+def test_NP_array(capsys):
+    NP_array()
+    output = capsys.readouterr()  # Captures the output
+    assert output.out == "[2 4 6][ 8 10 12]"    # Checks for correct output
+
