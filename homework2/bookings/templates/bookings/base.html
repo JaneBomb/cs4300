@@ -1,0 +1,45 @@
+{% extends main.css %}
+<!DOCTYPE html>
+    <!-- Base HTML File -->
+    <!-- Displays the menu bar and logo for whole site -->
+    <!-- head is for the meta data, not seen on the website -->
+    <head>
+        <!-- Uses UTF characters -->
+        <meta charset="UTF-8">
+
+        <!-- scales the webpage to the device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Sets the name of the webpage on the tab -->
+        <!-- Can be overwritten -->
+        <title>{% block title %}Cinemade{% endblock %}</title>
+    </head>
+
+    <body>
+        <header>
+            <!-- Header for the page -->
+             <!-- Text is a link back the "home" -->
+            <h1><a href="{% url 'home' %}">
+                Fantasy Football Forecast
+                </a>
+            </h1>
+        </header>
+        <!-- Creates the interactive menu for the page -->
+         <!-- The horizontal menu under the header -->
+        <menu>
+            
+            <!-- a href="#">All Movies</a -->
+            <a href="{% url 'placeholder' %}">Book a Seat</a>
+        </menu>
+        <!-- Body of the page -->
+         <!-- Overwritten by other pages -->
+        <main>
+                {% block content %}
+                <!-- Body of website. Changes per page -->
+                {% endblock %}
+            
+        </main>
+    
+    </body>
+
+</html>
