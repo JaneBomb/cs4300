@@ -1,4 +1,4 @@
-{% extends main.css %}
+{% load static %}
 <!DOCTYPE html>
     <!-- Base HTML File -->
     <!-- Displays the menu bar and logo for whole site -->
@@ -10,26 +10,76 @@
         <!-- scales the webpage to the device -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <!--  -->
+        <link rel="stylesheet" href="{% static 'bookings/main.css' %}">
+
         <!-- Sets the name of the webpage on the tab -->
         <!-- Can be overwritten -->
-        <title>{% block title %}Cinemade{% endblock %}</title>
+        <title>{% block title %}Cinemaid{% endblock %}</title>
+
+
+        <!-- Creates the 'settings' for the page -->
+        <!-- This includes colors used, size of text, types of fonts, etc. -->
+         <!-- Note: Included this, since this file could not find the css-->
+        <style>
+            header {
+                background-color: #ff815b;
+                color: white;
+                text-align: center;
+
+                margin: 0;
+                padding: 1em;
+
+            }
+            menu {
+                background-color: #ffc6bc;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.1em 0;
+
+                gap: 300px;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #ffffffff;
+            }
+            a {
+                color: white;
+                text-decoration: none;
+                padding: 1em 2em;
+                font-size: 1.2em;
+            }
+            
+            a:hover {
+                background-color: #ffddd7;
+            }
+            main {
+                padding: 2em;
+            }
+        </style>
     </head>
 
+    <!-- Starting layout fot website -->
     <body>
         <header>
             <!-- Header for the page -->
              <!-- Text is a link back the "home" -->
-            <h1><a href="{% url 'home' %}">
-                Fantasy Football Forecast
-                </a>
+            <h1><a href="{% url 'bookings' %}">
+                Cinemaid
+            </a>
             </h1>
         </header>
         <!-- Creates the interactive menu for the page -->
-         <!-- The horizontal menu under the header -->
+        <!-- The horizontal menu under the header -->
         <menu>
             
             <!-- a href="#">All Movies</a -->
-            <a href="{% url 'placeholder' %}">Book a Seat</a>
+            <a href="{% url 'bookings' %}">
+                Book a Seat
+            </a>
         </menu>
         <!-- Body of the page -->
          <!-- Overwritten by other pages -->

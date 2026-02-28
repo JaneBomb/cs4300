@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure--u%7)nll1u$lc8t(m$cvpx!42+pm71loh48ef(i8amywwhyyb9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['editor-cs4300-21.devedu.io']
+ALLOWED_HOSTS = ['editor-cs4300-21.devedu.io', '0.0.0.0']
 
 
 # Application definition
@@ -38,9 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'bookings',
-
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+         'rest_framework.authentication.SessionAuthentication',
+    ],
+}
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'bookings' / 'static',
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

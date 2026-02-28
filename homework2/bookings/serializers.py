@@ -23,13 +23,13 @@ class SeatSerializer(serializers.ModelSerializer):
     Transforms data types from Django to json, so they appear on webpage/server.
     '''
     class Meta:
-    model = Seat
+        model = Seat
         
-    # Specific fields from seat to display on server
-    fields = (
-        'number',
-        'booking_status',
-    )
+        # Specific fields from seat to display on server
+        fields = (
+            'number',
+            'booking_status',
+        )
 
 
 # Bookings serializer
@@ -39,14 +39,13 @@ class BookingSerializer(serializers.ModelSerializer):
     '''
 
     class Meta:
-    model = Booking
-        
-    # Specific fields from seat to display on server
-    fields = (
-        'movie',
-        'seat',
-        'user',
-        'booking_date'
-    )
-
-    def get_booking_status()
+        model = Booking
+            
+        # Specific fields from seat to display on server
+        fields = (
+            'movie',
+            'seat',
+            'user',
+            'booking_date'
+        )
+        read_only_fields = ['user']

@@ -16,12 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 
 from django.views.generic.base import RedirectView              # FOR TESTING
+from rest_framework.authtoken.views import obtain_auth_token
+
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('bookings/', include('bookings.urls')),
     path('admin/', admin.site.urls),
+    path('login/', obtain_auth_token),
     
-    path('', RedirectView.as_view(url='/bookings/movies/')),            # FOR TESTING
-]
+    
+    path('', RedirectView.as_view(url='/bookings/movies')),            # FOR TESTING
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

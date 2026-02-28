@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -33,11 +34,11 @@ class Seat(models.Model):
 Includes:
 Movie title: string
 Seat: positive integer
-User: string
+User: foreign key ()
 Booking data: Date type [date(YYYY/mm/dd)]
 '''
 class Booking(models.Model):
     movie = models.CharField(max_length = 100)
     seat = models.PositiveIntegerField()
-    user = models.CharField(max_length = 100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     booking_date = models.DateField()    # Format: date(YYYY/mm/dd))
