@@ -4,7 +4,9 @@ from rest_framework.routers import DefaultRouter
 
 # creates an URL for bookings
 urlpatterns = [
-    path('movies/', views.test_base, name='bookings'),
+    path('', views.bookings_home, name='bookings'),
+    path('movies/', views.movies_view, name='movies'),
+
     #path('seats/', views.seats_list),
     
     #path('create/', views.BookingsListCreateAPIView.as_view(), name='create-bookings'),

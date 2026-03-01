@@ -24,10 +24,13 @@ from rest_framework.authtoken.views import obtain_auth_token
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('bookings/', include('bookings.urls')),
+    path('', include('bookings.urls')),
     path('admin/', admin.site.urls),
     path('login/', obtain_auth_token),
     
     
-    path('', RedirectView.as_view(url='/bookings/movies')),            # FOR TESTING
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    #path('', RedirectView.as_view(url='')),            # FOR TESTING
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

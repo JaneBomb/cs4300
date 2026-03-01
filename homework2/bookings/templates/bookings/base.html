@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!--  -->
-        <link rel="stylesheet" href="{% static 'bookings/main.css' %}">
+        <link rel="stylesheet" href="{% static 'bookings/styles.css' %}">
 
         <!-- Sets the name of the webpage on the tab -->
         <!-- Can be overwritten -->
@@ -20,46 +20,46 @@
 
         <!-- Creates the 'settings' for the page -->
         <!-- This includes colors used, size of text, types of fonts, etc. -->
-         <!-- Note: Included this, since this file could not find the css-->
+        <!-- Note: Made the CSS inline. More in README -->
         <style>
             header {
                 background-color: #ff815b;
                 color: white;
                 text-align: center;
-
-                margin: 0;
                 padding: 1em;
-
             }
+
+            body {
+                background-color: #FFFFFF;
+            }
+
             menu {
                 background-color: #ffc6bc;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 0.1em 0;
+                padding: 0.5em 0;
 
                 gap: 300px;
             }
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #ffffffff;
-            }
+
             a {
                 color: white;
                 text-decoration: none;
                 padding: 1em 2em;
                 font-size: 1.2em;
             }
-            
+
             a:hover {
                 background-color: #ffddd7;
             }
+
             main {
                 padding: 2em;
             }
         </style>
+        <!-- Added incase children HTML files add extra -->
+        {% block extra_head %}{% endblock %}
     </head>
 
     <!-- Starting layout fot website -->
@@ -76,8 +76,8 @@
         <!-- The horizontal menu under the header -->
         <menu>
             
-            <!-- a href="#">All Movies</a -->
-            <a href="{% url 'bookings' %}">
+            <!--  -->
+            <a href="{% url 'movies' %}">
                 Book a Seat
             </a>
         </menu>

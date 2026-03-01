@@ -9,8 +9,11 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 #---------------------------- HTML VIEWS ----------------------------------#
-def test_base(request):
+def bookings_home(request):
     return render(request, 'bookings/base.html')
+
+def movies_view(request):
+    return render(request, 'bookings/movies.html')
 
 #---------------------------- APIS ----------------------------------#
 class MovieViewSet(viewsets.ModelViewSet):
