@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure--u%7)nll1u$lc8t(m$cvpx!42+pm71loh48ef(i8amywwhyyb9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#ALLOWED_HOSTS = ['editor-cs4300-21.devedu.io', '0.0.0.0']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['app-cs4300-21.devedu.io']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'behave.django,'
     'bookings',
 ]
 
@@ -114,6 +116,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://app-cs4300-21.devedu.io',
+
 ]
 
 

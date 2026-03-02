@@ -1,4 +1,4 @@
-# How to Run Homework 2
+# How to Run Homework 2 Server
 -----
 ### 1. Start virtual environment
 ```bash
@@ -18,15 +18,30 @@ cd %USERPROFILE%\cs4300\homework2
 ``` bash
 python3 manage.py runserver 0.0.0.0:3000
 ```
+
+### 4. Locate the "App" button on the DevEdu dashboard
+1. Navigate to Devedu.io 
+2. Ensure container is running
+3. Locate the light-blue "App" button beside the dark-blue "Editor" button
 <br></br>
+
+# How to run tests
+### 1. Ensure virtual environment is still active
+```bash
+# Command line will start with '(venv)'
+(venv) student@cs4300-21-6d9c576d5-snnw7:~/cs4300/homework2$ 
+```
+
+### 2. Ensure you're inside the correct directory with the 'manage.py'
+```bash
+ls
+```
+### 3. Run the tests script
+```bash
+python3 manage.py tests
+```
 -----------------------
 # Important Note
-Tutorial(s) used: https://www.youtube.com/playlist?list=PL-2EBeDYMIbSXhV8FMC1hVD32Fi6e4l2u
-HTML Files were made with the assistance of AI.
-
-
-## Static Files Issue
-DevEdu proxy returns 404 for all /static/ requests (including Django admin CSS).
-Using inline CSS as workaround. Full Django static files configuration is correct
-and will work in production (Render) deployment.
-Spent 2 hours talking to Pardot in Slack, and came to the above conclusion.
+Tutorial(s) used: https://www.youtube.com/playlist?list=PL-2EBeDYMIbSXhV8FMC1hVD32Fi6e4l2u  
+HTML and CSS Files were made with the assistance of Claude AI.  
+Troubleshooting done via Claude AI and Pardot AI.

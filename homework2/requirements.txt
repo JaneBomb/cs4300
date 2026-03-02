@@ -1,1 +1,6 @@
-whitenoise (via Pardot recommendation)
+python==3.12.3
+django==4.2.11
+djangorestramework==3.16.1
+curl==8.5.0
+whitenoise==6.12.0 (via Pardot recommendation)
+behave-django==1.9.0

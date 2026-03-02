@@ -38,7 +38,7 @@ User: foreign key ()
 Booking data: Date type [date(YYYY/mm/dd)]
 '''
 class Booking(models.Model):
-    movie = models.CharField(max_length = 100)
-    seat = models.PositiveIntegerField()
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    seat = models.ForeignKey(Seat, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     booking_date = models.DateField()    # Format: date(YYYY/mm/dd))

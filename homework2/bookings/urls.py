@@ -1,18 +1,30 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
-from rest_framework.routers import DefaultRouter
+from rest_framework.routers import DefaultRouter                # for API viewsets
+
+from rest_framework.authtoken.views import obtain_auth_token            # for login authentication
+
+# Routers for API view
+router = DefaultRouter()
+router.register('movies', views.MovieViewSet)
+router.register('seats', views.SeatViewSet)
+router.register('bookings', views.BookingsViewSet)
 
 # creates an URL for bookings
 urlpatterns = [
-    path('', views.bookings_home, name='bookings'),
+    # Frontend URLs
+    path('bookings/', views.bookings_home, name='bookings'),
     path('movies/', views.movies_view, name='movies'),
-
-    #path('seats/', views.seats_list),
+    path('book/<str:title>/', views.book_seat, name='book_seat'),
+    path('book/<str:title>/<int:seat_id>/confirm/', views.confirm_booking, name='confirmation'),
+    path('cancel/<int:booking_id>/', views.cancel_booking, name='cancel_booking'),
     
-    #path('create/', views.BookingsListCreateAPIView.as_view(), name='create-bookings'),
-    #path('user-bookings/', views.UserBookingListAPIView.as_view(), name='user-bookings'),
+    # Account URLs
+    path('register/', views.register, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('account/', views.account, name='account'),
+    
+    # API URLs
+    path('api/', include(router.urls)),
 ]
- 
-router = DefaultRouter()
-router.register('create', views.BookingsViewSet)
-urlpatterns += router.urls
