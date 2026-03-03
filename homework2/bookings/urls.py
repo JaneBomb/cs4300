@@ -6,9 +6,9 @@ from rest_framework.authtoken.views import obtain_auth_token            # for lo
 
 # Routers for API view
 router = DefaultRouter()
-router.register('movies', views.MovieViewSet)
-router.register('seats', views.SeatViewSet)
-router.register('bookings', views.BookingsViewSet)
+router.register('movies', views.MovieViewSet, basename='movies')
+router.register('seats', views.SeatViewSet, basename='seats')
+router.register('bookings', views.BookingsViewSet, basename='bookings')
 
 # creates an URL for bookings
 urlpatterns = [

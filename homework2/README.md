@@ -36,9 +36,24 @@ python3 manage.py runserver 0.0.0.0:3000
 ```bash
 ls
 ```
-### 3. Run the tests script
+### 3. Run the tests script (unit and integration)
 ```bash
 python3 manage.py tests
+```
+
+### 4. Run the behave test script (BDD)
+#### 1. Move to correct directory
+macOS/Linux  
+```bash 
+cd ~/cs4300/homework2/tests
+```
+Windows  
+```bash
+cd %USERPROFILE%\cs4300\homework2\tests
+```
+#### 2. Run the behave command  
+```bash
+behave
 ```
 -----------------------
 # Important Note

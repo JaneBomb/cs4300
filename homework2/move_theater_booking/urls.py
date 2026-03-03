@@ -24,7 +24,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('bookings/', include('bookings.urls')),
+    #path('bookings/', include('bookings.urls')),
     path('admin/', admin.site.urls),
 
     path('', include('bookings.urls')),     # Included for API urls (ex: /api/movies)

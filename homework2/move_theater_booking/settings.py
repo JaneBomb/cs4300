@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'behave.django,'
+    'behave_django',
     'bookings',
 ]
 

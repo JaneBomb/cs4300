@@ -220,9 +220,18 @@ class BookingsViewSet(viewsets.ModelViewSet):
     '''
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticated]
 
-    '''
+    
     def perform_create(self, serializer):
+        '''
+        Ensures only the logged in user can create a bookings
+        '''
         serializer.save(user=self.request.user)
-    '''
+        
+    def get_queryset(self):
+        '''
+        Returns bookings under a specific user
+        '''
+        return Booking.objects.filter(user=self.request.user)
+        
