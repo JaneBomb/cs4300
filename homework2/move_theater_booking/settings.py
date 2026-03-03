@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='221c47633c99e371bd3f8678f3024
 DEBUG = 'RENDER' not in os.environ
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ALLOWED_HOSTS = ['app-cs4300-21.devedu.io']
+ALLOWED_HOSTS = ['app-cs4300-21.devedu.io', 'testserver']
 #ALLOWED_HOSTS = ['*']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
