@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +28,8 @@ SECRET_KEY = 'django-insecure--u%7)nll1u$lc8t(m$cvpx!42+pm71loh48ef(i8amywwhyyb9
 DEBUG = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ALLOWED_HOSTS = ['app-cs4300-21.devedu.io']
-#ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['app-cs4300-21.devedu.io']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -53,7 +54,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,10 +94,11 @@ WSGI_APPLICATION = 'move_theater_booking.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
 }
 
 
