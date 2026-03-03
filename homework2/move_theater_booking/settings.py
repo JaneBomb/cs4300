@@ -22,14 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--u%7)nll1u$lc8t(m$cvpx!42+pm71loh48ef(i8amywwhyyb9'
+SECRET_KEY = os.environ.get('SECRET_KEY', default='221c47633c99e371bd3f8678f3024707')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#ALLOWED_HOSTS = ['app-cs4300-21.devedu.io']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['app-cs4300-21.devedu.io']
+#ALLOWED_HOSTS = ['*']
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -95,8 +99,7 @@ WSGI_APPLICATION = 'move_theater_booking.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='sqlite:///db.sqlite3',  # SQLite for local dev
         conn_max_age=600
     )
 }

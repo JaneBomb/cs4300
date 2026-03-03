@@ -37,3 +37,10 @@ class Command(BaseCommand):
         ]
         Movie.objects.bulk_create(movies)                                        # Recurses through movies list and adds Movie
         self.stdout.write(self.style.SUCCESS("Movies added successfully!"))         # TESTING
+
+
+    # Populates the Seat database
+    # Creates 32 seats
+    for i in range(1, 33):
+        Seat.objects.get_or_create(number=i, booking_status=True)
+        
