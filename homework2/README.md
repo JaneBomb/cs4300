@@ -77,8 +77,23 @@ python3 manage.py runserver 0.0.0.0:3000
 1. Navigate to Devedu.io 
 2. Ensure container is running
 3. Locate the light-blue "App" button beside the dark-blue "Editor" button
+----
+# API Views
+----
+## Note: To access all APIs, authentication (admin) may be required
+### 0. Sign into the admin
+``` text
+'/admin/'
+Username: admin
+Password: jbombria
+```
 
-
+### 1. Check access to APIs
+```text
+'/api/movies/'
+'/api/seats/'
+'/api/bookings/'
+```
 -----------------------
 # Important Note
 Tutorial(s) used: https://www.youtube.com/playlist?list=PL-2EBeDYMIbSXhV8FMC1hVD32Fi6e4l2u  
